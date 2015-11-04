@@ -13,6 +13,11 @@
 
 <title>Display Webcam Stream</title>
  
+<script>
+if (window.location.protocol != "https:")
+    window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+</script>
+ 
 <style>
 
 @font-face {
@@ -110,7 +115,7 @@ footer
 	bottom: 2em;
 	right: 2em;
 	opacity: 0.3;
-	padding: 1em 1em 1em 4em;
+	padding: 1em 1em 1em 4.5em;
 	margin: 1em 1em 1em 1em;
 		
 	-webkit-border-radius: 10px;
