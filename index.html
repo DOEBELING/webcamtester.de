@@ -5,6 +5,8 @@
 <meta content="Zeige Deinen Webcam-Stream im Browser. Keine Installation, keine Übertragung. Optimal zum Testen. (oder Schminken)" name="description">
 <meta content="Teste Deine Webcam online" name="title">
 
+<meta name="author" content="Andreas Döbeling | DÖBELING Web&IT">
+
 <!-- SocialMedia Icons -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
@@ -23,9 +25,19 @@
 	font-style: normal;
 }
 
+html
+{
+	height:100%;
+}
+
 body
 {
 	font-family: Sansation;
+	background-color: grey;
+	height: 100%;
+	margin:0;
+	padding:0;
+	overflow: hidden;
 }
 
 h1
@@ -33,6 +45,10 @@ h1
 	margin:0;
 	padding:0;
 	font-size: 1.5em;
+	
+	border-bottom: 1px solid white;
+	margin-bottom: 0.3em;
+	padding-bottom: 0.3em;
 }
 
 h2
@@ -42,7 +58,36 @@ h2
 	font-size: 1em;
 }
 
+#hinweis
+{
+    z-index: -100;
+	background-color: white;
+	color: black;
+	
+	width: 30em;
+	opacity: 0.8;
 
+	display:block;
+	
+	margin: 8em auto;
+	
+	padding: 5em;
+	
+	text-align: center;
+	vertical-align: middle;
+	
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	
+	-webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+	box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+	
+	text-align: justify;
+	
+	
+}
 
 video {
     position: fixed;
@@ -52,7 +97,7 @@ video {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -100;
+    z-index: 1;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     background-size: cover; 
@@ -83,11 +128,13 @@ footer
 	background-color: black;	
 	
 	overflow: hidden;	
+	
+	z-index: 100;
 }
 
 footer:hover
 {
-	opacity: 0.7;
+	opacity: 0.8;
 	
 	padding: 2em 2em 2em 14em;
 	margin: 0;
@@ -189,8 +236,39 @@ footer:hover > #info
 	left: 1em;
 }
 
+#hinweis .buttons
+{
+	position: absolute;
+	left:2em;
+	bottom:2em;
+	font-size:1em;
+	color: black;
+	opacity: 0.8;
+}
 
+#hinweis .buttons .fa-play
+{
+	opacity: 0.3;
+	font-size:3em;
+	padding: 8px;
+}
 
+#hinweis .buttons .fa-pause
+{
+	font-size:3em;
+	animation: blinkPause 1s steps(20, start) infinite;
+}
+
+ @keyframes blinkPause {
+      to {
+        opacity:0.3;
+      }
+    }
+    @-webkit-keyframes blinkPause {
+      to {
+        opacity:0.3;
+      }
+    }
 
 
 
@@ -364,22 +442,37 @@ footer:hover > #info
 
 	<main>
 		<video autoplay="true" id="video"></video>
+		<div id="hinweis">
+		Bitte erlaube uns den Zugriff auf Deine Webcam.<br><br>
+		Diese Webanwendung greift direkt auf Deine Webcam zu und zeigt Dein Livebild.
+		Es werden keine Bilder gespeichert, protokolliert oder übertragen, das macht diesen Dienst für Dich sicher und einfach.
+		
+		<div class="buttons">
+		<i class="fa fa-pause"></i>
+		<i class="fa fa-play"></i>
+		</div>
+		</div>
+		
+		
+
 	</main>
 	<footer>
 		<div id="hoverOnly">	
-		<h1>WebcamTester.de - Teste Deine Webcam</h1>
-		<h2>...oder benutze sie als Schminkspiegel ;-)</h2>
+		<h1>WebcamTester.de</h1>
+		<h2>Teste Deine Webcam online, oder <br>nutze sie als Schminkspiegel ;-)</h2>
 		
-		Diese Webanwendung greift direkt auf Deine Webcam zu und zeigt Dir Dein Bild. Weder speichert Sie die Bilder, noch werden diese über unseren Server geleitet oder irgendwohin übertragen. Sorgen um Deine Privatsphäre musst Du Dir keine machen. Alle Quellcodes dieses Projektes sind öffentlich und können jederzeit und von jedermann auf <a href="https://github.com/DOEBELING/webcamtester.de" target="_blank"><i class="fa fa-github"></i> GitHub</a> überprüft werden.
+		Diese Webanwendung greift direkt auf Deine Webcam zu und zeigt Dein Livebild. Es werden keine Bilder gespeichert, protokolliert oder übertragen, das macht diesen Dienst für Dich sicher und einfach.
+		Der gesamte Programmcode ist öffentlich und kann auf <a href="https://github.com/DOEBELING/webcamtester.de" target="_blank"><i class="fa fa-github"></i> GitHub</a> jederzeit und von jedermann überprüft werden. Bei Fragen, Problemen, Lob und Kritik erreist Du mich jederzeit per <a href="mailto:&#075;&#111;&#110;&#116;&#097;&#107;&#116;&#064;&#068;&#111;&#101;&#098;&#101;&#108;&#105;&#110;&#103;&#046;&#100;&#101;?subject=[WebcamTester.de] Feedback&body=Hi Andreas! Ich war gerade auf WebcamTester.de"><i class="fa fa-envelope"></i> E-Mail</a>.
 		
 		<br><br>		
 		
-		Entwickler: Andreas Döbeling<br>
-		Freelance WebDeveloper PHP/MySQL/HTML5/CSS3<br>
+		Entwickler: <a href="https://www.xing.com/profile/Andreas_Doebeling" target="_blank"><i class="fa fa-xing-square"></i> Andreas Döbeling</a><br>
+		<a href="http://www.doebeling.de" alt="Freelance PHP5/MySQL/HTML5/CSS3 from Erlangen/Germany" target="_blank">Freelance WebDeveloper: PHP/MySQL/HTML5/CSS3</a><br>
 		Kommunikationswirt (BAW) / Fachinformatiker AE<br>
 		
 		
 		<a href="https://www.xing.com/profile/Andreas_Doebeling" target="_blank"><i class="icon fa fa-xing-square"></i></a>
+		<a href="https://de.linkedin.com/in/doebeling" target="_blank"><i class="icon fa fa-linkedin-square"></i></a>
 		<a href="https://www.facebook.com/andreas.doebeling" target="_blank"><i class="icon fa fa-facebook-official"></i></a>
 		<a href="https://github.com/ADoebeling" target="_blank"><i class="icon fa fa-github"></i></a>
 		<a href="https://de.wikipedia.org/wiki/Benutzer:ADoebeling" target="_blank"><i class="icon fa fa-wikipedia-w"></i></a>
